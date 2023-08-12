@@ -18,29 +18,21 @@ class loadStateAdapter (  private val retry: () -> Unit): LoadStateAdapter<loadS
     ):RecyclerView.ViewHolder(binding.root) {
 fun bind(loadState: LoadState){
     if (loadState is LoadState.Error) {
-        binding.textViewError.text = loadState.error.localizedMessage
-    }
+        binding.textViewError.text = loadState.error.localizedMessage }
     binding.progressbar.visible(loadState is LoadState.Loading)
     binding.buttonRetry.visible(loadState is LoadState.Error)
     binding.textViewError.visible(loadState is LoadState.Error)
     binding.buttonRetry.setOnClickListener {
-        retry()
-    }
-
+        retry() }
     binding.progressbar.visibility = View.VISIBLE
 }
 }
-
-
-
     override fun onBindViewHolder(holder: loadHolder, loadState: LoadState) {
         holder.bind(loadState)
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState)
         = loadHolder(
             ItemLoadStateReviewBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             retry
         )
-
     }

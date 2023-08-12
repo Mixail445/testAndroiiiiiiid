@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#F7A072"
@@ -8,32 +10,43 @@
 
     <LinearLayout
 
-        android:layout_width="380dp"
-        android:layout_height="25dp"
-        android:background="@drawable/rounded"
-        android:gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded">
 
         <Button
 
             android:id="@+id/reviewes"
-            android:layout_width="180dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
             android:background="@drawable/rounded_left"
-            android:backgroundTint="@color/white"
             android:text="Reviewes"
             android:textAllCaps="false"
-            android:textColor="#F7A072" />
+            android:textColor="@color/orr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/critics"
-            android:layout_width="185dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
             android:background="@drawable/rounded_right"
-            android:backgroundTint="#F7A072"
             android:text="Critics"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reviewes"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 </androidx.appcompat.widget.Toolbar>

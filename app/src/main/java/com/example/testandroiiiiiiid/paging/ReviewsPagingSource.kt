@@ -18,9 +18,9 @@ class ReviewsPagingSource()
             val currentPage= params.key?:1
             val response: Response<Critic> = RetrofitService.getInstance().getreview("GW5a0tJfWOcfQ7k3dpQizIsrmpZ33Bmm\n" +
                     "\n",currentPage)
-            val data= response.body()?.results
+            val data= response.body()!!.results
             val responsedata = mutableListOf<com.example.testandoid.ui.main.data.Result>()
-            responsedata.addAll(data!!)
+            data.let { responsedata.addAll(it) }
 
             LoadResult.Page(
                 data = responsedata,

@@ -14,13 +14,9 @@
         android:theme="@style/Theme.TestAndroiiiiiiid"
         tools:targetApi="31">
         <activity
-            android:name=".detalCritic"
-            android:exported="false"
-            android:label="@string/title_activity_detal_critic"
-            android:theme="@style/Theme.TestAndroiiiiiiid.NoActionBar" />
-        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

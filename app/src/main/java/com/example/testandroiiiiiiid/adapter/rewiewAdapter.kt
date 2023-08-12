@@ -21,7 +21,6 @@ class rewiewAdapter: PagingDataAdapter<Result, rewiewAdapter.Holder>(rewievCompo
             return oldItem.byline ==newItem.byline
         }
     }
-    private var data = mutableListOf<Result>()
     class Holder(val view:View):RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.findViewById(R.id.title_item)
         val body: TextView = itemView.findViewById(R.id.body_item)
@@ -32,7 +31,7 @@ class rewiewAdapter: PagingDataAdapter<Result, rewiewAdapter.Holder>(rewievCompo
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val ItemsViewModel = getItem(position)!!
         Glide.with(holder.itemView.context)
-            .load(ItemsViewModel.multimedia.src)
+            .load(ItemsViewModel?.multimedia?.src)
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
             .into(holder.foto)

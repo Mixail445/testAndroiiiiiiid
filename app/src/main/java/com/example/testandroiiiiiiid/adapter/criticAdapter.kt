@@ -33,13 +33,13 @@ class criticAdapter(): PagingDataAdapter<com.example.testandroiiiiiiid.dataCriti
         val ItemsViewModel = getItem(position)!!
         Glide.with(holder.itemView.context)
             .load(ItemsViewModel?.multimedia?.resource?.src)
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_background)
+            .placeholder(R.drawable.img_1)
+            .error(R.drawable.img_1)
             .into(holder.foto)
         holder.name.text = ItemsViewModel.display_name
         holder.itemView.setOnClickListener {
             if (onClickListener != null) {
-                onClickListener!!.onClick(position, ItemsViewModel )
+                onClickListener?.onClick(position, ItemsViewModel )
             }
         }
     }

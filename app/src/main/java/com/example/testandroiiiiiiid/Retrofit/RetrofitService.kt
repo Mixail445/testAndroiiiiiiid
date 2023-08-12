@@ -9,6 +9,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 private const val BASE_URL = "https://api.nytimes.com/svc/movies/v2/"
 interface RetrofitService {
@@ -33,6 +34,12 @@ interface RetrofitService {
         @Query("page") position: Int
 
     ): Response<crit>
+    @GET("reviews/search.json?")
+    suspend fun getRc(
+        @Query("reviewer") reviewer: String?,
+        @Query("api-key") api_key: String,
+        @Query("page") position: Int,
+        ):Response<Critic>
 
 
 

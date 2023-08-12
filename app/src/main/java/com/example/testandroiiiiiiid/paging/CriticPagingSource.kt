@@ -18,9 +18,9 @@ class CriticPagingSource() : PagingSource<Int, com.example.testandroiiiiiiid.dat
             val currentPage= params.key?:1
             val response: Response<crit> = RetrofitService.getInstance().getcritic("GW5a0tJfWOcfQ7k3dpQizIsrmpZ33Bmm\n" +
                     "\n",currentPage)
-            val data= response.body()?.results
+            val data= response.body()!!.results
             val responsedata = mutableListOf<com.example.testandroiiiiiiid.dataCritic.Result>()
-            responsedata.addAll(data!!)
+            data.let { responsedata.addAll(it) }
 
             LoadResult.Page(
                 data = responsedata,
