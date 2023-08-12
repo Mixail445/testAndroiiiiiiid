@@ -28,13 +28,6 @@ class ReviewsViewModel(val apiRepository: RetrofitService) : ViewModel() {
         Pager(config = PagingConfig(10,2), pagingSourceFactory = {
             CriticPagingSource()
         }).flow.cachedIn(viewModelScope)
-
-
-
-
-
-
-
     fun af(st:String): Flow<PagingData<Result>> {
         val search = Pager(config = PagingConfig(10,2),
             pagingSourceFactory = {

@@ -36,9 +36,10 @@ class detalAdapter(): PagingDataAdapter<com.example.testandoid.ui.main.data.Resu
             .placeholder(R.drawable.img)
             .error(R.drawable.img)
             .into(holder.foto)
+        holder.title.text = ItemsViewModel.display_title
         holder.body.text = ItemsViewModel?.summary_short
-        holder.data.text = ItemsViewModel?.byline
-        holder.name.text = ItemsViewModel?.display_title
+        holder.data.text = ItemsViewModel?.date_updated
+        holder.name.text = ItemsViewModel?.byline
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val itemView =
