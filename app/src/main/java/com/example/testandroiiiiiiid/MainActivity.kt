@@ -20,7 +20,6 @@ import com.example.testandroiiiiiiid.databinding.ActivityMainBinding
 private lateinit var binding:ActivityMainBinding
 private var check:Boolean = false
 private var check1:Boolean = false
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     @SuppressLint("ResourceAsColor")
@@ -40,8 +39,8 @@ class MainActivity : AppCompatActivity() {
             val windows = window
             check = false
                 windows.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                windows.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                windows.statusBarColor = this.resources.getColor(R.color.orr1)
+             //   windows.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+                windows.statusBarColor = this.resources.getColor(R.color.orr1,resources.newTheme())
                 supportFragmentManager.beginTransaction()
                     .replace<criticFragment>(R.id.frame)
                     .addToBackStack("First tab")
@@ -55,8 +54,8 @@ class MainActivity : AppCompatActivity() {
             check1 = false
             val windows = window
             windows.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            windows.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            windows.setStatusBarColor(this.resources.getColor(R.color.orr))
+          //  windows.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+                windows.statusBarColor = this.resources.getColor(R.color.orr,resources.newTheme())
             supportFragmentManager.beginTransaction()
                 .replace<reviews>(R.id.frame)
                 .addToBackStack("Second tab")

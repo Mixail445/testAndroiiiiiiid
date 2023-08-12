@@ -41,13 +41,11 @@ viewModel._itemAmount.observe(viewLifecycleOwner, Observer {
     viewModel.loadDetailsMovie(it)
     viewModel.detailsMovie.observe(viewLifecycleOwner, Observer {
         lifecycleScope.launch {
-
             it?.sort_name?.let { it1 ->
                 viewModel.load(it1).collectLatest {
                     adapter.submitData(it)
                 }
             }
-
         }
         text.text = it?.seo_name
         text1.text = it?.bio
@@ -58,22 +56,14 @@ viewModel._itemAmount.observe(viewLifecycleOwner, Observer {
                 .error(R.drawable.img_1)
                 .into(foto)
         }
-
-
-
-
     })
 })
         viewModel.detailsMovie.value?.let { Log.d("Fff", it.sort_name) }
-
-
-
        val view =  inflater.inflate(R.layout.fragment_detal, container, false)
       foto = view.findViewById(R.id.imageActor1)
         text = view.findViewById(R.id.nameActor1)
       text1 = view.findViewById(R.id.bodyText)
         val recyclerView: RecyclerView = view.findViewById(R.id.Recyclerdetal)
-
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
@@ -92,7 +82,8 @@ viewModel._itemAmount.observe(viewLifecycleOwner, Observer {
     }
     private fun setupViewModel() {
         val factory = ReviewsViewModelFactory(RetrofitService.getInstance())
-        viewModel =  ViewModelProvider(activity!!.viewModelStore, factory).get(ReviewsViewModel::class.java)
+       // viewModel =  ViewModelProvider(activity!!.viewModelStore, factory).get(ReviewsViewModel::class.java)
+        viewModel = activity?.let { ViewModelProvider(it.viewModelStore, factory) }?.get(ReviewsViewModel::class.java) ?: viewModel
     }
 
 

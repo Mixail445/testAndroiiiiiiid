@@ -65,7 +65,7 @@ class reviews : Fragment() {
     }
     private fun setupViewModel() {
         val factory = ReviewsViewModelFactory(RetrofitService.getInstance())
-        viewModel =  ViewModelProvider(activity!!.viewModelStore, factory).get(ReviewsViewModel::class.java)
+        viewModel = activity?.let { ViewModelProvider(it.viewModelStore, factory) }?.get(ReviewsViewModel::class.java) ?: viewModel
     }
     private fun setupView() {
         lifecycleScope.launch {
