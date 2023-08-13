@@ -13,10 +13,21 @@
         <item name="android:statusBarColor">#F7A072</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#F7A072</item>
+        <item name="colorPrimaryDark">#F7A072</item>
+        <item name="colorAccent">#F7A072</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
+    </style>
+   
     <style name="Theme.TestAndroiiiiiiid.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="Theme.TestAndroiiiiiiid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.TestAndroiiiiiiid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -10,11 +10,8 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.testandoid.ui.main.data.Result
 import com.example.testandroiiiiiiid.Retrofit.RetrofitService
-import com.example.testandroiiiiiiid.paging.CriticPagingSource
+import com.example.testandroiiiiiiid.paging.*
 
-import com.example.testandroiiiiiiid.paging.ReviewsPagingSource
-import com.example.testandroiiiiiiid.paging.detalPaging
-import com.example.testandroiiiiiiid.paging.searchPaging
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -36,12 +33,6 @@ class ReviewsViewModel(val apiRepository: RetrofitService) : ViewModel() {
   }
 
 
-fun af1(search:Flow<PagingData<com.example.testandroiiiiiiid.dataCritic.Result>>):Flow<PagingData<com.example.testandroiiiiiiid.dataCritic.Result>>{
-    val search = Pager(config = PagingConfig(10,2),
-        pagingSourceFactory = {
-            CriticPagingSource() }).flow.cachedIn(viewModelScope)
-    return search
-}
     val _itemAmount = MutableLiveData<Int>()
     val itemAmount: LiveData<Int> get() = _itemAmount
     fun setItemAmount(amount: Int) {
@@ -63,6 +54,14 @@ fun af1(search:Flow<PagingData<com.example.testandroiiiiiiid.dataCritic.Result>>
             }).flow.cachedIn(viewModelScope)
 return critic1
     }
+    fun af1(st:String): Flow<PagingData<Result>> {
+        val search = Pager(config = PagingConfig(10,2),
+            pagingSourceFactory = {
+                datasearchReview(st) }).flow.cachedIn(viewModelScope)
+        return search
+    }
+
+
     }
 
 

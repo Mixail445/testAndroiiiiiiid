@@ -40,6 +40,12 @@ interface RetrofitService {
         @Query("api-key") api_key: String,
         @Query("page") position: Int,
         ):Response<Critic>
+    @GET("reviews/search.json?")
+    suspend fun getdata(
+        @Query("opening-date") opening_date: String?,
+        @Query("api-key") api_key: String,
+        @Query("page") position: Int,
+    ):Response<Critic>
 
 
 

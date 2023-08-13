@@ -55,6 +55,9 @@ class criticAdapter(): PagingDataAdapter<com.example.testandroiiiiiiid.dataCriti
                 .inflate(R.layout.item_critic, parent, false)
         return Holder(itemView)
     }
+    fun clear(){
+        
+    }
 
 
 }

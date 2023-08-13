@@ -10,7 +10,7 @@ import retrofit2.Response
 
 class CriticPagingSource() : PagingSource<Int, com.example.testandroiiiiiiid.dataCritic.Result>() {
     override fun getRefreshKey(state: PagingState<Int, com.example.testandroiiiiiiid.dataCritic.Result>): Int? {
-        return null
+       return null
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, com.example.testandroiiiiiiid.dataCritic.Result> {
